@@ -19,7 +19,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="h-full p-4 bg-[#212629] md:w-[200px]">
+    <div className=" p-4 bg-[#212629] md:w-[200px] h-full ">
       <ul className="space-y-4">
         <li>
           <Link 

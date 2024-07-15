@@ -13,7 +13,7 @@ const Header = () => {
 
   return (
     <>
-      <div className="w-full h-[48px] bg-[#eceaf0]">
+      <div className=" w-full h-[48px] bg-[#eceaf0]  ">
         <div className="flex justify-between items-center h-full ">
           <div className="flex items-center space-x-2">
             <div className='w-[97px] h-[48px] md:w-[200px] bg-[#29343b] shadow-lg

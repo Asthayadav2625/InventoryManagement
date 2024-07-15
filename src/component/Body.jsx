@@ -1,14 +1,14 @@
  // src/Body.jsx
 import React from "react";
 import Sidebar from "./Sidebar";
-import Container from "./Container";
+import  Dashboard from "./Dashboard";
 
 const Body = () => {
   return (
-    <div className="flex h-screen">
+    <div className="flex  flex-1">
       <Sidebar />
       <div className="flex-1">
-        <Container />
+        <Dashboard />
       </div>
     </div>
   );
