@@ -5,21 +5,14 @@ import { IoIosArrowForward, IoIosArrowDown } from 'react-icons/io';
 import { FiSettings, FiShoppingCart, FiShoppingBag, FiBarChart, FiFileText } from 'react-icons/fi';
 
 const Sidebar = () => {
-  const [accordionState, setAccordionState] = useState({
-    inventory: false,
-    sales: false,
-    purchase: false,
-  });
+  const [openAccordion, setOpenAccordion] = useState(null);
 
   const toggleAccordion = (accordion) => {
-    setAccordionState(prevState => ({
-      ...prevState,
-      [accordion]: !prevState[accordion],
-    }));
+    setOpenAccordion(accordion === openAccordion ? null : accordion);
   };
 
   return (
-    <div className=" p-4 bg-[#212629] md:w-[200px] h-full ">
+    <div className="fixed p-4 bg-[#212629] md:w-[200px] h-full z-10 mt-10">
       <ul className="space-y-4">
         <li>
           <Link 
@@ -41,15 +34,15 @@ const Sidebar = () => {
               <FiSettings className="mr-2" />
               <span className="hidden md:block">Inventory</span>
             </div>
-            {accordionState.inventory ? <IoIosArrowDown /> : <IoIosArrowForward />}
+            {openAccordion === 'inventory' ? <IoIosArrowDown /> : <IoIosArrowForward />}
           </div>
-          {accordionState.inventory && (
-            <ul className="ml-8 space-y-2">
+          {openAccordion === 'inventory' && (
+            <ul className="ml-2 space-y-4 p-2">
               <li>
-                <Link to='/inventory/items' className="text-white">Items</Link>
+                <Link to='/inventory/items' className="p-2 rounded-lg text-white transition duration-300 ease-in-out hover:bg-gray-700">Items</Link>
               </li>
               <li>
-                <Link to="/inventory/inventoryadjustment" className="text-white">Inventory Adjustment</Link>
+                <Link to="/inventory/inventoryadjustment" className="p-2 rounded-lg text-white transition duration-300 ease-in-out hover:bg-gray-700">Inventory Adjustment</Link>
               </li>
             </ul>
           )}
@@ -59,28 +52,28 @@ const Sidebar = () => {
             onClick={() => toggleAccordion('sales')}
             className="flex items-center justify-between p-2 transition duration-300 ease-in-out text-white rounded cursor-pointer hover:bg-gray-700"
           >
-            < div className="flex items-center pr-2">
+            <div className="flex items-center pr-2">
               <FiShoppingCart className="mr-2" />
               <span className="hidden md:block">Sales</span>
             </div>
-            {accordionState.sales ? <IoIosArrowDown /> : <IoIosArrowForward />}
+            {openAccordion === 'sales' ? <IoIosArrowDown /> : <IoIosArrowForward />}
           </div>
-          {accordionState.sales && (
-            <ul className="ml-8 space-y-2">
+          {openAccordion === 'sales' && (
+            <ul className="ml-2 space-y-4 p-2">
               <li>
-                <Link to='/sales/customer' className="text-white">Customer</Link>
+                <Link to='/sales/customer' className=" p-2 rounded-lg text-white transition duration-300 ease-in-out hover:bg-gray-700">Customer</Link>
               </li>
               <li>
-                <Link to="/sales/salesorder" className="text-white">Sales Order</Link>
+                <Link to="/sales/salesorder" className="p-2 rounded-lg text-white transition duration-300 ease-in-out hover:bg-gray-700">Sales Order</Link>
               </li>
               <li>
-                <Link to="/sales/invoice" className="text-white">Invoice</Link>
+                <Link to="/sales/invoice" className="p-2 rounded-lg text-white transition duration-300 ease-in-out hover:bg-gray-700">Invoice</Link>
               </li>
               <li>
-                <Link to="/sales/paymentreceive" className="text-white">Payment Receive</Link>
+                <Link to="/sales/paymentreceive" className="p-2 rounded-lg text-white transition duration-300 ease-in-out hover:bg-gray-700">Payment Receive</Link>
               </li>
               <li>
-                <Link to="/sales/salesreturn" className="text-white">Sales Return</Link>
+                <Link to="/sales/salesreturn" className="p-2 rounded-lg text-white transition duration-300 ease-in-out hover:bg-gray-700">Sales Return</Link>
               </li>
             </ul>
           )}
@@ -94,21 +87,21 @@ const Sidebar = () => {
               <FiShoppingBag className="mr-2" />
               <span className="hidden md:block">Purchase</span>
             </div>
-            {accordionState.purchase ? <IoIosArrowDown /> : <IoIosArrowForward />}
+            {openAccordion === 'purchase' ? <IoIosArrowDown /> : <IoIosArrowForward />}
           </div>
-          {accordionState.purchase && (
-            <ul className="ml-8 space-y-2">
+          {openAccordion === 'purchase' && (
+            <ul className="ml-2 space-y-4 p-2">
               <li>
-                <Link to='/purchase/purchaseorder' className="text-white">Purchase Order</Link>
+                <Link to='/purchase/purchaseorder' className="p-2 rounded-lg text-white transition duration-300 ease-in-out hover:bg-gray-700">Purchase Order</Link>
               </li>
               <li>
-                <Link to="/purchase/purchasereceive" className="text-white">Purchase Receive</Link>
+                <Link to="/purchase/purchasereceive" className="p-2 rounded-lg text-white transition duration-300 ease-in-out hover:bg-gray-700">Purchase Receive</Link>
               </li>
               <li>
-                <Link to="/purchase/bills" className="text-white">Bills</Link>
+                <Link to="/purchase/bills" className="p-2 rounded-lg text-white transition duration-300 ease-in-out hover:bg-gray-700">Bills</Link>
               </li>
               <li>
-                <Link to="/purchase/purchasemade" className="text-white">Purchase Made</Link>
+                <Link to="/purchase/purchasemade" className="p-2 rounded-lg text-white transition duration-300 ease-in-out hover:bg-gray-700">Purchase Made</Link>
               </li>
             </ul>
           )}

@@ -5,7 +5,13 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        'ipad-mini': '768px',
+        'ipad': '820px',
+        'ipad-pro': '1024px',
+      },
+    },
   },
   plugins: [],
 };

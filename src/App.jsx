@@ -7,7 +7,7 @@ function App() {
 console.log("Hello");
   return (
     <>
-        <div className='flex flex-col h-screen'>
+        <div className='flex flex-col h-screen overflow-x-hidden'>
            <Navbar/>
            <Body/>
         </div>
